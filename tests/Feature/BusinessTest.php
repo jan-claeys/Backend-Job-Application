@@ -41,6 +41,11 @@ class BusinessTest extends TestCase
             'country' => 'Belgium'
         ]);
 
+        DB::table('owners')->insert([
+            'name' => 'Wim Van Buynder',
+            'business_id' => $id
+        ]);
+
         $response = $this->get("/api/businesses/{$id}");
 
         $response->assertJsonStructure([
