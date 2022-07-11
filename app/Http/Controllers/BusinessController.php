@@ -20,7 +20,7 @@ class BusinessController extends Controller
 
     public function show($id)
     {
-        return Business::where('id', $id)->with('owners')->get();
+        return Business::where('id', $id)->with('owners')->first();
     }
 
     public function index(Request $request)

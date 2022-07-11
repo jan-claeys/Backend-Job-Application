@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('businesses')->insert([
+        $id1 = DB::table('businesses')->insertGetID([
             'name' => 'Next Apps',
             'description' => 'We create digital applications with a big focus on the end user.',
             'address' => 'Stationsplein 41',
@@ -24,13 +24,22 @@ class DatabaseSeeder extends Seeder
             'country' => 'Belgium'
         ]);
 
-        DB::table('businesses')->insert([
+        $id2 = DB::table('businesses')->insertGetId([
             'name' => 'Next Apps France',
             'description' => 'We create digital applications with a big focus on the end user.',
             'address' => 'Stationsplein 41',
             'city' => 'Lokeren',
             'zip_code' => '9160',
             'country' => 'France'
+        ]);
+
+        DB::table('businesses')->insert([
+            'name' => 'Next Apps Netherlands',
+            'description' => 'We create digital applications with a big focus on the end user.',
+            'address' => 'Stationsplein 41',
+            'city' => 'Lokeren',
+            'zip_code' => '9160',
+            'country' => 'Netherlands'
         ]);
 
         DB::table('businesses')->insert([
@@ -44,22 +53,22 @@ class DatabaseSeeder extends Seeder
 
         DB::table('owners')->insert([
             'name' => 'Wim Van Buynder',
-            'business_id' => 1
+            'business_id' => $id1
         ]);
 
         DB::table('owners')->insert([
             'name' => 'Christophe Todts',
-            'business_id' => 1
+            'business_id' => $id1
         ]);
 
         DB::table('owners')->insert([
             'name' => 'Sander Versluys',
-            'business_id' => 1
+            'business_id' => $id1
         ]);
 
         DB::table('owners')->insert([
             'name' => 'Jan Claeys',
-            'business_id' => 2
+            'business_id' => $id2
         ]);
     }
 }
