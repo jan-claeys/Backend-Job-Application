@@ -33,6 +33,15 @@ class DatabaseSeeder extends Seeder
             'country' => 'France'
         ]);
 
+        DB::table('businesses')->insert([
+            'name' => 'Next Apps2',
+            'description' => 'We create digital applications with a big focus on the end user.',
+            'address' => 'Stationsplein 41',
+            'city' => 'Gent',
+            'zip_code' => '9000',
+            'country' => 'Belgium'
+        ]);
+
         DB::table('owners')->insert([
             'name' => 'Wim Van Buynder',
             'business_id' => 1
