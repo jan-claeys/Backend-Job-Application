@@ -19,6 +19,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/businesses', [BusinessController::class, 'index']);
+
 Route::get('/businesses/countries', [BusinessController::class, 'countries']);
 
 Route::get('/businesses/{id}', [BusinessController::class, 'show']);
