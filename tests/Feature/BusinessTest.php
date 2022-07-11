@@ -33,7 +33,7 @@ class BusinessTest extends TestCase
     public function it_return_business()
     {
         $id = DB::table('businesses')->insertGetID([
-            'name' => 'Next Apps',
+            'name' => 'Next Apps Test',
             'description' => 'We create digital applications with a big focus on the end user.',
             'address' => 'Stationsplein 41',
             'city' => 'Lokeren',
@@ -63,7 +63,9 @@ class BusinessTest extends TestCase
                     'business_id'
                 ]
             ]
-        ]);
+        ])
+            ->assertJsonPath('name', 'Next Apps Test')
+            ->assertJsonPath('owners.0.name', 'Wim Van Buynder');
     }
 
     /** @test */
